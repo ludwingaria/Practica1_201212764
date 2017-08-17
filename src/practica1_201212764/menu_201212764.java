@@ -15,51 +15,20 @@ import java.util.Scanner;
  */
 class menu_201212764 {
     
-     Scanner sn =new Scanner(System.in);
-   boolean salir =false;
-  int opcion;  //  guardaremos la opcion del usuario
-  
-      public void menu()  throws IOException {
-          while (!salir){
-       System.out.println("......................");
+     Scanner lector = new Scanner(System.in);
+  String ini;
+    public void menu(){
+         System.out.println("......................");
                 System.out.println("LUDWING ALEXANDER ARIAS MORALES");
                 System.out.println("201212764");
                  System.out.println("IPC A  PRACTICA 1");
                   System.out.println("  BUSCAMINAS");
-            System.out.println("Precione enter");
-            System.out.println("");
-            
-            System.out.println("0. Salir");
- 
-            try {
- 
-                System.out.println("Escribe una de las opciones");
-                opcion = sn.nextInt();
- 
-                switch (opcion) {
-                    case 1:
-                           juego menu_201212764=new juego(); //Creamos un objeto de la clase Juego
-        //ahora juego es una instancia de la clase Juego
-        menu_201212764.go(); //Invocamos al menú de opciones para dar inicio al juego
-   
-                    
-                        break;
-                   
-                    case 0:
-                       salir = true;
-                         System.out.println("bye bye bye");
-                        break;
-                   
-                    default:
-                        System.out.println("Solo números entre 1 y 3");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Debes insertar un número");
-                sn.next();
-            }
-        }
- 
-    }
- 
-} 
-
+                  ini=lector.nextLine();
+                  if(ini.equals("")){
+                     juego menu=new juego(); //Creamos un objeto de la clase Juego
+                      menu.go();
+                  }else{
+                      System.out.println("precione enter");
+}
+}
+}

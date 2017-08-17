@@ -23,9 +23,9 @@ class juego {
        System.out.println("......................");
                 
                 System.out.println("  BUSCAMINAS  ");
-                 System.out.println("1. principiante");
-                 System.out.println("2. intermedio");
-            System.out.println("3. experto");
+                 System.out.println("1. Principiante");
+                 System.out.println("2. Intermedio");
+            System.out.println("3. Experto");
             System.out.println("");
             
             System.out.println("0. Salir");
@@ -38,15 +38,17 @@ class juego {
                 switch (opcion) {
                     case 1:
                        
-   
+    System.out.println("opcion principiante");
                     
                         break;
                     case 2:
-                         
+                      Intermedio juego =new Intermedio(); //Creamos un objeto de la clase Juego
+        //ahora juego es una instancia de la clase Juego
+        juego.play(); //Invocamos al menú de opciones para dar inicio al juego
     
                         break;
                         case 3:
-                         
+                          System.out.println("opcion experto");
     
                         break;
                     case 0:
