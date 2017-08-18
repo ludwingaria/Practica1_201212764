@@ -14,27 +14,27 @@ import java.util.Scanner;
 class Intermedio {
     Scanner leer = new Scanner (System.in);
 		//matriz del tablero [fila x][coolumna y]
-		int tablero [][]= new int[20][20];
+		int tablero [][]= new int[4][4];
 		//variables para la generacion de bonbas
 		double w=0;
   		double z=0;
 		//variable k lleva el total de minas
 		int ntminas=0;
 		//variable para llevar la cuenta de los intentos
-		int intento=90;// si quieres disminuir los numero de intentos aqui
+		int intento=4;// si quieres disminuir los numero de intentos aqui
 		// indicando el numero de minas
-		int tminas=10;
+		int tminas=4;
                 public void play(){
-                    for(int j=0;j<20;j++)
-			for (int i=0;i<20;i++)
+                    for(int j=0;j<4;j++)
+			for (int i=0;i<4;i++)
 				tablero [j][i]=0;
 		//agragando bonbas aleatoriamente
 		do  {  
-     			w=Math.random()*20;
-        		z=Math.random()*20;  
+     			w=Math.random()*4;
+        		z=Math.random()*4;  
            		w=(int)w;
            		z=(int)z;
-           		if  (z!=0 && w!=0 && z!=20-1 && w!=20-1){
+           		if  (z!=0 && w!=0 && z!=4-1 && w!=4-1){
              	tablero[(int)w][(int) z ]=1;
               	ntminas++;
            			}

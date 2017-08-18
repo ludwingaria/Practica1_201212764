@@ -39,7 +39,7 @@ class juego {
                     case 1:
                        
     System.out.println("opcion principiante");
-                    
+                   System.out.println("no se como hacer esta opcion"); 
                         break;
                     case 2:
                       Intermedio juego =new Intermedio(); //Creamos un objeto de la clase Juego
@@ -49,6 +49,7 @@ class juego {
                         break;
                         case 3:
                           System.out.println("opcion experto");
+                          System.out.println("esta opcion no esta terminada");
     
                         break;
                     case 0:
