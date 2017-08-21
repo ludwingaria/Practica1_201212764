@@ -18,7 +18,7 @@ public class Practica1_201212764 {
      */
     public static void main(String[] args) throws IOException {
         menu_201212764 Practica1_201212764=new  menu_201212764();
-   
+   // el metodo para llamar la clase principal
    Practica1_201212764.menu();
     }
     
