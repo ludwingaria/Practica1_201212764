@@ -31,7 +31,7 @@ class juego {
     /**
      * @return Devuelve el tiempo actual en ms
      */
-   
+   //menu principal con sus datos
 
     /**
      * @see mostrarMenu Muestra el menú de juego al usuario y según la decisión
@@ -51,7 +51,7 @@ class juego {
         System.out.println("4. Jugar Modo Debug");
         System.out.println("5. Salir");
         System.out.println("");
-        System.out.print("Selecciona una opción [1-5]: ");
+        System.out.print("Selecciona el nivel que desea jugar (1-5): ");
         int opcion = sc.nextInt();
         System.out.println("");
         switch (opcion) {
@@ -228,7 +228,7 @@ class juego {
         Scanner sc = new Scanner(System.in);
         boolean valid = false;
         while (!valid) {
-            System.out.println("Introduce tu movimiento!");
+            System.out.println("voltear!");
             System.out.print("Introduce la fila ");
             mov1 = sc.nextInt();
             System.out.print("Introduce la columna ");

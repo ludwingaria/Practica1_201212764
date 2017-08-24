@@ -23,10 +23,7 @@ import static practica1_201212764.juego.mov1;
 import static practica1_201212764.juego.mov2;
 import static practica1_201212764.juego.recursivDestapa;
 
-/**
- *
- * @author Majosh
- */
+//codigo fuente del juego
 class menu_201212764 {
     
      Scanner lector = new Scanner(System.in);
@@ -69,7 +66,7 @@ class menu_201212764 {
                }
                       }
                   }else{
-                      System.out.println("precione enter");
+                      System.out.println("precione enter:");
 }
 }
 }

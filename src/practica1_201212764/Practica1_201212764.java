@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package practica1_201212764;
-
+//el main del inicio del programa
 import java.io.IOException;
 
 /**
