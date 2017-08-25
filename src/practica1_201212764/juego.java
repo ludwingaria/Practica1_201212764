@@ -5,18 +5,17 @@
  */
 package practica1_201212764;
 
-import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-/**como
+/**
  *
  * @author Majosh
  */
-class juego {
+public class juego {
     
-    public static char[][] matriz = new char[9][9];
-    public static char[][] matriz2 = new char[9][9];
+    public static char[][] matriz = new char[8][8];
+    public static char[][] matriz2 = new char[8][8];
     public static int filas = 0;
     public static int columnas = 0;
     public static int minas = 0;
@@ -24,14 +23,11 @@ class juego {
     public static int mov2 = 0;
     public static int win = 0;
     public static boolean fipartida = false;
-    public static boolean debug = false;
+    public static boolean libre = false;
     public static int count = 0;
     public static boolean fi = false;
 
-    /**
-     * @return Devuelve el tiempo actual en ms
-     */
-   //menu principal con sus datos
+    
 
     /**
      * @see mostrarMenu Muestra el menú de juego al usuario y según la decisión
@@ -39,19 +35,17 @@ class juego {
      * a disponer así como el cálculo de cuantas casillas hay que destapar para
      * ganar
      */
-    public static void go() {
+    public static void mostrarMenu() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("=========================");
-        System.out.println("BUSCAMINAS");
-        System.out.println("=========================");
+       
         System.out.println("Menu:");
         System.out.println("1. Jugar Nivel Principiante");
         System.out.println("2. Jugar Nivel Intermedio");
         System.out.println("3. Jugar Nivel Avanzado");
-        System.out.println("4. Jugar Modo Debug");
+        System.out.println("4. Jugar Modo libre");
         System.out.println("5. Salir");
         System.out.println("");
-        System.out.print("Selecciona el nivel que desea jugar (1-5): ");
+        System.out.print("Selecciona una opción [1-5]: ");
         int opcion = sc.nextInt();
         System.out.println("");
         switch (opcion) {
@@ -59,7 +53,7 @@ class juego {
                 filas = 5;
                 columnas = 5;
                 minas = 4;
-                win = (4 * 4) - 19;
+                win = (4 * 4) - 4;
                 break;
             case 2:
                 filas = 7;
@@ -74,7 +68,7 @@ class juego {
                 win = (8 * 8) - 12;
                 break;
             case 4:
-                debug = true;
+                libre= true;
                 filas = 9;
                 columnas = 9;
                 minas = 19;
@@ -83,7 +77,6 @@ class juego {
             case 5:
                 fi = true;
                 System.exit(0);
-                System.out.println("Te has salido del juego bye bye");
                 break;
             default:
                 System.out.println("Introduce una opción valida!!");
@@ -137,12 +130,12 @@ class juego {
     public static void iniciaTablero() {
         for (int l = 1; l < filas; l++) {
             for (int m = 1; m < columnas; m++) {
-                matriz2[l][m] = '-';
+                matriz2[l][m] = 'x';
             }
         }
         for (int l = 1; l < filas; l++) {
             for (int m = 1; m < columnas; m++) {
-                matriz[l][m] = '-';
+                matriz[l][m] = 'x';
             }
         }
     }
@@ -159,7 +152,7 @@ class juego {
             for (int j = 1; j < filas; j++) {
                 for (int k = 1; k < columnas; k++) {
                     int mina = randNumero(columnas);
-                    if ((k == mina) && (matriz[j][k] == '-') && (j != mov1 && k != mov2)) {
+                    if ((k == mina) && (matriz[j][k] == 'x') && (j != mov1 && k != mov2)) {
                         matriz[j][k] = '*';
                         ++i;
                         if (i == minas) {
@@ -179,31 +172,31 @@ class juego {
         for (int n = 2; n <= matriz.length - 2; ++n) {
             for (int o = 2; o <= matriz[0].length - 2; ++o) {
                 count = 0;
-                if ((matriz[n + 1][o + 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n + 1][o + 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n - 1][o - 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n - 1][o - 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n - 1][o + 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n - 1][o + 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n + 1][o - 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n + 1][o - 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n - 1][o] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n - 1][o] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n + 1][o] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n + 1][o] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n][o + 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n][o + 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if ((matriz[n][o - 1] == '*') && (matriz[n][o] == '-')) {
+                if ((matriz[n][o - 1] == '*') && (matriz[n][o] == 'x')) {
                     ++count;
                 }
-                if (matriz[n][o] == '-') {
+                if (matriz[n][o] == 'x') {
                     if (count > 0) {
                         matriz[n][o] = Integer.toString(count).charAt(0);
                     } else if (count == 0) {
@@ -214,7 +207,7 @@ class juego {
         }
         for (int i = 0; i < filas; i++) {
             for (int j = 0; j < columnas; j++) {
-                if (matriz[i][j] == '-') {
+                if (matriz[i][j] == 'x') {
                     matriz[i][j] = Integer.toString(0).charAt(0);
                 }
             }
@@ -258,6 +251,7 @@ class juego {
             fipartida = true;
             System.out.println("BOOM!!");
             System.out.println("");
+            
         } else if (matriz[casilla][casilla2] == '0') {
             if (matriz2[casilla][casilla2] != matriz[casilla][casilla2]) {
                 matriz2[casilla][casilla2] = matriz[casilla][casilla2];
@@ -291,19 +285,9 @@ class juego {
      * @param args the command line arguments
      */
    
-        // TODO code application logic here
-        
-           
-          
-           
-           
-           
-            
-         
-                    
-              
-              
-            }
-        
+      
+        }
 
     
+
+
