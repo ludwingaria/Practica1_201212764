@@ -43,9 +43,9 @@ public class juego {
         System.out.println("2. Jugar Nivel Intermedio");
         System.out.println("3. Jugar Nivel Avanzado");
         System.out.println("4. Jugar Modo libre");
-        System.out.println("5. Salir");
+        System.out.println("0. Salir");
         System.out.println("");
-        System.out.print("Selecciona una opción [1-5]: ");
+        System.out.print("Selecciona una opción ");
         int opcion = sc.nextInt();
         System.out.println("");
         switch (opcion) {
@@ -74,8 +74,9 @@ public class juego {
                 minas = 19;
                 win = (8 * 8) - 19;
                 break;
-            case 5:
+            case 0:
                 fi = true;
+                System.out.println("has salido del juego bye bye bye!!");
                 System.exit(0);
                 break;
             default:
@@ -220,7 +221,15 @@ public class juego {
     public static void introMovim() {
         Scanner sc = new Scanner(System.in);
         boolean valid = false;
-        while (!valid) {
+        System.out.println("1.voltear");
+         System.out.println("2.reiniciar");
+          System.out.println("0.salir");
+        
+        System.out.print("Ingresar Opcion: ");
+        int opcion = sc.nextInt();
+        System.out.println("");
+        switch (opcion) {
+            case 1:
             System.out.println("voltear!");
             System.out.print("Introduce la fila ");
             mov1 = sc.nextInt();
@@ -231,6 +240,8 @@ public class juego {
                 valid = true;
             } else {
                 valid = false;
+                  break;
+                  
             }
         }
     }
@@ -249,7 +260,7 @@ public class juego {
         }
         if (matriz[casillorg][casill2org] == '*') {
             fipartida = true;
-            System.out.println("BOOM!!");
+            System.out.println("BOOM has perdido juego terminado!!");
             System.out.println("");
             
         } else if (matriz[casilla][casilla2] == '0') {
@@ -274,7 +285,7 @@ public class juego {
             }
         }
         if (count == win) {
-            System.out.println("Has ganado!!!");
+            System.out.println("Felicidades has ganado ;) ;) !!!");
             fipartida = true;
         }
     }

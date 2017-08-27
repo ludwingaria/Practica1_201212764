@@ -11,6 +11,7 @@ import static practica1_201212764.juego.columnas;
 
 import static practica1_201212764.juego.fi;
 import static practica1_201212764.juego.filas;
+import static practica1_201212764.juego.fipartida;
 import static practica1_201212764.juego.imprTablero;
 import static practica1_201212764.juego.iniciaTablero;
 import static practica1_201212764.juego.intrMinas;
@@ -31,8 +32,8 @@ class menu_201212764 {
 
     Scanner lector = new Scanner(System.in);
   String ini;
-    private int count;
-    private boolean fipartida;
+      private static int count;
+    
     public void menu(){
          System.out.println("......................");
                 System.out.println("LUDWING ALEXANDER ARIAS MORALES");
